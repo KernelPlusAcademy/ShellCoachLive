@@ -41,7 +41,7 @@
     </style>
 </head>
 <body>
-    <img src="logo.png" alt="Kernel+ Academy Logo">
+    <img src="{{ url_for('static', filename='logo.png') }}" alt="Kernel+ Academy Logo">
     <h1>🧠 ShellCoach: Explain Linux Commands</h1>
     <form method="POST">
         <input type="text" name="command" placeholder="Enter a Linux command" required>
