@@ -1,13 +1,12 @@
-
 from flask import Flask, request, render_template
-import openai
 import os
+from openai import OpenAI
 from dotenv import load_dotenv
 
 load_dotenv()
 
 app = Flask(__name__)
-openai.api_key = os.getenv("OPENAI_API_KEY")
+client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 @app.route("/", methods=["GET", "POST"])
 def index():
@@ -16,11 +15,11 @@ def index():
         command = request.form.get("command", "")
         prompt = f"Explain this Linux command in simple terms and flag any risks: {command}"
         try:
-            response = openai.ChatCompletion.create(
+            response = client.chat.completions.create(
                 model="gpt-3.5-turbo",
                 messages=[{"role": "user", "content": prompt}]
             )
-            explanation = response.choices[0].message["content"]
+            explanation = response.choices[0].message.content.strip()
         except Exception as e:
             explanation = f"Error: {str(e)}"
     return render_template("index.html", explanation=explanation)
