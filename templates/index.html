@@ -1,0 +1,58 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ShellCoach - Kernel+ Academy</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #0f172a;
+            color: #e2e8f0;
+            text-align: center;
+            padding: 40px;
+        }
+        input[type="text"] {
+            width: 60%;
+            padding: 10px;
+            margin: 10px 0;
+            font-size: 16px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #22d3ee;
+            border: none;
+            color: #000;
+            font-weight: bold;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        img {
+            width: 220px;
+            margin-bottom: 20px;
+        }
+        .response {
+            margin-top: 20px;
+            white-space: pre-wrap;
+            text-align: left;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+</head>
+<body>
+    <img src="logo.png" alt="Kernel+ Academy Logo">
+    <h1>🧠 ShellCoach: Explain Linux Commands</h1>
+    <form method="POST">
+        <input type="text" name="command" placeholder="Enter a Linux command" required>
+        <br>
+        <button type="submit">Explain</button>
+    </form>
+    {% if explanation %}
+    <div class="response">
+        <h3>Explanation:</h3>
+        <p>{{ explanation }}</p>
+    </div>
+    {% endif %}
+</body>
+</html>
