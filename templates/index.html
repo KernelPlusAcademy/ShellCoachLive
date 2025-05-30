@@ -1,58 +1,51 @@
-
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>ShellCoach - Kernel+ Academy</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #0f172a;
-            color: #e2e8f0;
-            text-align: center;
-            padding: 40px;
-        }
-        input[type="text"] {
-            width: 60%;
-            padding: 10px;
-            margin: 10px 0;
-            font-size: 16px;
-        }
-        button {
-            padding: 10px 20px;
-            background-color: #22d3ee;
-            border: none;
-            color: #000;
-            font-weight: bold;
-            font-size: 16px;
-            cursor: pointer;
-        }
-        img {
-            width: 220px;
-            margin-bottom: 20px;
-        }
-        .response {
-            margin-top: 20px;
-            white-space: pre-wrap;
-            text-align: left;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-    </style>
+    <meta charset="UTF-8">
+    <title>ShellCoach | Kernel+ Academy</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <img src="{{ url_for('static', filename='logo.png') }}" alt="Kernel+ Academy Logo">
-    <h1>🧠 ShellCoach: Explain Linux Commands</h1>
-    <form method="POST">
-        <input type="text" name="command" placeholder="Enter a Linux command" required>
-        <br>
-        <button type="submit">Explain</button>
-    </form>
-    {% if explanation %}
-    <div class="response">
-        <h3>Explanation:</h3>
-        <p>{{ explanation }}</p>
-    </div>
-    {% endif %}
+
+    <header>
+        <img src="logo.png" alt="Kernel+ Academy Logo">
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">Courses</a>
+            <a href="#">ShellCoach</a>
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>🧠 ShellCoach: Instantly Understand Linux Commands</h1>
+        <p>The world's smartest Linux command explainer — brought to you by Kernel+ Academy, the #1 Linux learning platform.</p>
+    </section>
+
+    <section class="form-section">
+        <form method="POST">
+            <input type="text" name="command" placeholder="Enter a Linux command..." required>
+            <br>
+            <button type="submit">Explain</button>
+        </form>
+        {% if explanation %}
+        <div class="response">
+            <h3>Explanation:</h3>
+            <p>{{ explanation }}</p>
+        </div>
+        {% endif %}
+    </section>
+
+    <section class="testimonial">
+        <p>✅ Trusted by 50,000+ learners around the world. Join the open-source revolution with Kernel+ Academy.</p>
+    </section>
+
+    <footer>
+        &copy; 2025 Kernel+ Academy. All rights reserved. | The #1 platform for Linux mastery.
+    </footer>
+
 </body>
 </html>
